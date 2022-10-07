@@ -1,6 +1,6 @@
-package com.dherranz1.psp.ut02.data.remote
+package com.dherranz1.psp.ut02.ex01.data.remote
 
-import com.dherranz1.psp.ut02.data.remote.models.UserApiModel
+import com.dherranz1.psp.ut02.ex01.data.remote.models.UserApiModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -50,6 +50,19 @@ class RetrofitApiClient {
         }
 
 
+
+    }
+
+    fun getUserById(userId : Int) : UserApiModel?{
+        val callUsers = apiEndPoints.getUserById(userId) // Llamada
+        val response = callUsers.execute() // Ejecucion de la llamada
+
+        return if (response.isSuccessful){
+            val user = response.body()
+            user
+        }
+        else
+            null
 
     }
 }
