@@ -1,6 +1,4 @@
-package com.dherranz1.psp.ut02.ex02agricola.data.repository.remote.models
-
-import java.io.File
+package com.dherranz1.psp.ut02.ex02agricola.data.repository.remote.api_plagas.models
 
 class AlertDataApiModel(
     val id : Int,
@@ -11,6 +9,6 @@ class AlertDataApiModel(
     val summary : String,
     val body : String,
     val source : String,
-    val files : List<File>
+    val files : List<AlertDataFileApiModel>
 ) {
 }
