@@ -21,8 +21,8 @@ class Ut02ex02Activity : AppCompatActivity() {
             val alertas = AlertsRepository().getAlertById(3053125)
             val listaAlertas = AlertsRepository().getAlerts()
 
-            listaAlertas?.data?.forEach {
-                Log.d("@dev", "Alerta ${it.date}")
+            listaAlertas?.data?.forEach { alert ->
+                Log.d("@dev", "Alerta : $alert")
             }
         }.start()
 

@@ -1,7 +1,5 @@
 package com.dherranz1.psp.ut02.ex02agricola.data.repository.remote.api_plagas
 
-import com.dherranz1.psp.ut02.ex02agricola.data.repository.remote.api_plagas.models.AlertApiModel
-import com.dherranz1.psp.ut02.ex02agricola.data.repository.remote.api_plagas.models.AlertsListApiModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -30,6 +28,7 @@ class RetrofitApiClientAgricola {
     fun getAlerts(): AlertsListApiModel? {
         val callAlerts = apiEndPointsAgricola.getAlerts()
         val response = callAlerts.execute() // Ejecucion de la llamada
+        val alertsList = mutableListOf<AlertApiModel>()
 
         return if(response.isSuccessful){
             val alertsList = response.body()
