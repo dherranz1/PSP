@@ -12,18 +12,24 @@ class Ut02ex02Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ut02ex02)
 
-        val apiClient = RetrofitApiClientAgricola()
-
-
 
         Thread {
 
-            val alertas = AlertsRepository().getAlertById(3053125)
+            val alerta = AlertsRepository().getAlertById(3053125)
             val listaAlertas = AlertsRepository().getAlerts()
 
-            listaAlertas?.data?.forEach {
-                Log.d("@dev", "Alerta ${it.date}")
+            listaAlertas.forEach { alert ->
+                Log.d("@dev", "Alerta : $alert")
             }
+
+            Log.d("@dev", "")
+
+            if(alerta != null)
+                Log.d("@dev", "Alerta individual : $alerta")
+            else
+                Log.d("@dev", "Alerta no encontrada")
+
+
         }.start()
 
 

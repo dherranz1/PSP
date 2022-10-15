@@ -31,6 +31,7 @@ class RetrofitApiClientAgricola {
         val callAlerts = apiEndPointsAgricola.getAlerts()
         val response = callAlerts.execute() // Ejecucion de la llamada
 
+
         return if(response.isSuccessful){
             val alertsList = response.body()
             alertsList
